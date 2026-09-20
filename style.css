@@ -1,0 +1,575 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --pink: #ff5f9e;
+    --dark: #130916;
+    --soft: #fff0f7;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: radial-gradient(
+            circle at top,
+            #35122e,
+            #130916 60%
+    );
+    color: #fff;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+   ========================= */
+
+#hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -30px;
+    animation: float linear forwards;
+    opacity: 0.8;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 25px;
+    position: relative;
+}
+
+.glass {
+    width: 100%;
+    max-width: 700px;
+
+    padding: 55px 35px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 25px 80px #0008;
+}
+
+.small,
+.eyebrow {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ffb7d3;
+    font-size: 0.75rem;
+}
+
+h1 {
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    line-height: 1;
+    margin: 22px 0;
+}
+
+h1 span {
+    color: var(--pink);
+    text-shadow: 0 0 30px #ff5f9e66;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #eadce6;
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+button {
+    border: 0;
+    border-radius: 999px;
+
+    padding: 16px 30px;
+
+    background: linear-gradient(
+            135deg,
+            #ff5f9e,
+            #c83f85
+    );
+
+    color: #fff;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 35px #ff5f9e44;
+
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   SECTIONS
+   ========================= */
+
+.section {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 100px 25px;
+
+    text-align: center;
+}
+
+.section h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin: 15px 0 35px;
+}
+
+
+/* =========================
+   LETTER
+   ========================= */
+
+.letter p#typing {
+    max-width: 760px;
+
+    margin: auto;
+
+    font-size: 1.25rem;
+
+    line-height: 2;
+
+    color: #f4e7ef;
+
+    min-height: 180px;
+}
+
+
+/* =========================
+   PHOTO GALLERY
+   ========================= */
+
+.gallery {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+    margin-top: 30px;
+
+    align-items: stretch;
+}
+
+
+/* =========================
+   MEMORY CARD
+   ========================= */
+
+.memory {
+    width: 100%;
+    min-width: 0;
+
+    background: #fff;
+
+    color: #32152b;
+
+    padding: 10px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: 0 15px 40px #0006;
+
+    transition: transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Equal image area */
+
+.memory img {
+    width: 100%;
+
+    height: 320px;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 14px;
+}
+
+
+/* Different card angles */
+
+.memory:nth-child(1) {
+    transform: rotate(-1deg);
+}
+
+.memory:nth-child(2) {
+    transform: rotate(1deg);
+}
+
+.memory:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+
+/* Hover */
+
+.memory:hover {
+    transform: translateY(-8px) scale(1.02);
+
+    box-shadow: 0 20px 50px #0008;
+}
+
+.memory:nth-child(1):hover,
+.memory:nth-child(2):hover,
+.memory:nth-child(3):hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+
+/* Caption */
+
+.memory p {
+    padding: 18px 10px 12px;
+
+    line-height: 1.5;
+
+    font-size: 1rem;
+}
+
+
+/* =========================
+   OLD PLACEHOLDER
+   ========================= */
+
+.placeholder {
+    width: 100%;
+
+    height: 320px;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+            135deg,
+            #32172d,
+            #8c416d
+    );
+
+    display: grid;
+
+    place-items: center;
+
+    color: #ffd8e9;
+
+    font-size: 1.1rem;
+}
+
+
+/* =========================
+   REASONS CARDS
+   ========================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.card {
+    padding: 30px 20px;
+
+    border: 1px solid #ffffff18;
+
+    background: #ffffff09;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    font-size: 2rem;
+}
+
+.card b {
+    font-size: 1.15rem;
+    color: #fff;
+}
+
+.card span {
+    font: 1rem/1.6 Arial, sans-serif;
+    color: #d9c8d4;
+}
+
+
+/* =========================
+   QUOTE
+   ========================= */
+
+.quote-box {
+    padding: 60px 25px;
+
+    border-top: 1px solid #ffffff15;
+    border-bottom: 1px solid #ffffff15;
+}
+
+.quote-box span {
+    font-size: 4rem;
+    color: var(--pink);
+}
+
+.quote-box h2 {
+    font-size: clamp(1.6rem, 4vw, 3rem);
+
+    line-height: 1.5;
+
+    font-weight: normal;
+}
+
+
+/* =========================
+   FINAL MESSAGE
+   ========================= */
+
+.final {
+    min-height: 80vh;
+}
+
+.final-message {
+    display: none;
+
+    width: 100%;
+    max-width: 700px;
+
+    margin: 40px auto 0;
+
+    padding: 45px 30px;
+
+    border-radius: 28px;
+
+    background: linear-gradient(
+            145deg,
+            #ffffff12,
+            #ff5f9e12
+    );
+
+    border: 1px solid #ffb7d344;
+
+    animation: appear 0.8s ease;
+}
+
+.final-message.show {
+    display: block;
+}
+
+.final-message p {
+    font: 1.1rem/1.9 Arial, sans-serif;
+
+    color: #eadce6;
+
+    margin: 20px 0;
+}
+
+.final-message strong {
+    color: #ffb7d3;
+
+    font-size: 1.2rem;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* =========================
+   TABLET / SMALL LAPTOP
+   ========================= */
+
+@media (max-width: 1000px) {
+
+    .section {
+        max-width: 950px;
+    }
+
+    .gallery {
+        gap: 18px;
+    }
+
+    .memory img {
+        height: 280px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 750px) {
+
+    .hero {
+        padding: 20px;
+    }
+
+    .glass {
+        padding: 45px 22px;
+    }
+
+    .section {
+        padding: 75px 20px;
+    }
+
+
+    /* ONE BIG PHOTO PER ROW */
+
+    .gallery {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        margin-top: 25px;
+    }
+
+
+    .memory {
+        width: 100%;
+
+        padding: 10px;
+
+        border-radius: 20px;
+    }
+
+
+    .memory img {
+        width: 100%;
+
+        height: 380px;
+
+        border-radius: 14px;
+
+        object-fit: cover;
+    }
+
+
+    .memory p {
+        padding: 15px 8px 10px;
+
+        font-size: 0.95rem;
+
+        line-height: 1.5;
+    }
+
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    .placeholder {
+        height: 380px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 450px) {
+
+    .hero {
+        padding: 15px;
+    }
+
+    .glass {
+        padding: 40px 18px;
+    }
+
+    .section {
+        padding: 60px 15px;
+    }
+
+
+    .gallery {
+        gap: 25px;
+    }
+
+
+    .memory img {
+        height: 350px;
+    }
+
+
+    .memory p {
+        font-size: 0.9rem;
+    }
+}
+.memory img.photo3 {
+    object-fit: cover;
+    object-position: center top;
+}
